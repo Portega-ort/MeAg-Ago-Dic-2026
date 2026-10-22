@@ -29,7 +29,7 @@ public class AsientoService {
 
             mostrarMapa(nombresFilas, seleccionados);
 
-            System.out.println("\nLeyenda:");
+            System.out.println("DIFERENCIADOR:");
             System.out.println("[ ] = Libre");
             System.out.println("[X] = Ocupado");
             System.out.println("[D] = discapacidad");
@@ -70,6 +70,20 @@ public class AsientoService {
             }
 
             // Comprobar si esta ocupado
+
+            int FILAS = entrada.charAt(0) - 'A';
+            int COLUMNAS = entrada.charAt(1) - '1';
+
+            // Si ya estaba seleccionado, quitarlo
+            if (seleccionados.contains(entrada)) {
+                seleccionados.remove(entrada);
+                System.out.println(
+                        "Has quitado el asiento " + entrada + "."
+                );
+                continue;
+            }
+
+            // Comprobar si esta ocupado
             if (sala[fila][columna] == 'O') {
                 System.out.println(
                         "Error: el asiento " + entrada + " esta ocupado."
@@ -77,22 +91,13 @@ public class AsientoService {
                 continue;
             }
 
-            // Los asientos accesibles tienen reserva especial
-            if (sala[fila][columna] == 'D') {
-                System.out.println(
-                        "Este asiento esta reservado para accesibilidad."
-                );
-                System.out.println(
-                        "Seleccion no disponible en esta version."
-                );
-                continue;
-            }
-
+            // Agregar el asiento seleccionado
             seleccionados.add(entrada);
 
             System.out.println(
                     "Asiento " + entrada + " seleccionado correctamente."
             );
+
         }
 
         System.out.println("\n--- RESUMEN DE RESERVACION ---");
