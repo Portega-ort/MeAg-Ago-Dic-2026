@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AsientoService {
-    private char[][] asientos;
-    private int filas;
-    private int columnas;
+    public char[][] asientos;
+    public int filas;
+    public int columnas;
 
     public void inicializarSala(String tipoSala) {
         int limiteDiscapacitados;
@@ -101,7 +101,7 @@ public class AsientoService {
         }
     }
 
-    private void mostrarMapa() {
+    void mostrarMapa() {
         // Pantalla centrada
         if (columnas == 8) {
             System.out.println("\n             [ P A N T A L L A ]\n");
