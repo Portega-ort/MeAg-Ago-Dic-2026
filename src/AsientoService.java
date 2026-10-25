@@ -17,7 +17,7 @@ public class AsientoService {
         } else {
             this.filas = 5; // A-E
             this.columnas = 8; // 1-8 (Total: 40 asientos)
-            limiteDiscapacitados = 10;
+            limiteDiscapacitados = 8;
         }
 
         asientos = new char[filas][columnas];
@@ -60,7 +60,7 @@ public class AsientoService {
             String numeros = inputOriginal.replaceAll("[^0-9]", "");
 
             // Si encontró exactamente una letra y al menos un número...
-            if (letras.length() == 1 && numeros.length() > 0) {
+            if (letras.length() == 1 && !numeros.isEmpty()) {
                 char letraFila = letras.charAt(0);
                 int fila = letraFila - 'A';
                 int col = Integer.parseInt(numeros) - 1;
