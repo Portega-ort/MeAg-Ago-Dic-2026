@@ -67,11 +67,18 @@ public class AsientoService {
 
                 if (fila >= 0 && fila < filas && col >= 0 && col < columnas) {
                     if (asientos[fila][col] == 'L' || asientos[fila][col] == 'D') {
-                        asientos[fila][col] = 'X'; // Usamos la 'X' como en tu dibujo
-
                         String nombreAsiento = letraFila + "-" + (col + 1);
-                        carrito.add(nombreAsiento);
-                        System.out.println("\n[!] Asiento " + nombreAsiento + " agregado a tu lista.");
+                        System.out.print("¿Deseas seleccionar el asiento " + nombreAsiento + "? (S/N): ");
+                        String confirmAsiento = scanner.nextLine().trim().toUpperCase();
+                        if (confirmAsiento.equals("S") || confirmAsiento.equals("SI")) {
+                            asientos[fila][col] = 'X';
+                            carrito.add(nombreAsiento);
+                            System.out.println("\n[!] Asiento " + nombreAsiento + " agregado a tu lista.");
+                        } else if (confirmAsiento.equals("N") || confirmAsiento.equals("NO")) {
+                            System.out.println("\n[!] Selección cancelada.");
+                        } else {
+                            System.out.println("\n[X] Opción inválida. Selección cancelada.");
+                        }
                     } else {
                         System.out.println("\n[X] Error: El asiento ya esta ocupado.");
                     }
