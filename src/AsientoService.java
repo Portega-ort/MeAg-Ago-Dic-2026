@@ -104,9 +104,9 @@ public class AsientoService {
     void mostrarMapa() {
         // Pantalla centrada
         if (columnas == 8) {
-            System.out.println("\n             [ P A N T A L L A ]\n");
+            System.out.println("\n         [ P A N T A L L A ]\n");
         } else {
-            System.out.println("\n        [ P A N T A L L A ]\n");
+            System.out.println("\n   [ P A N T A L L A ]\n");
         }
 
         // Imprimir la línea superior de la cuadrícula
