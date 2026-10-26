@@ -69,6 +69,7 @@ public class AsientoServiceTest {
         // Como se canceló la confirmación, el asiento debe conservar su estado original ('D')
         assertEquals('D', asientoService.asientos[0][1], "El asiento no debe cambiar a 'X' si el usuario cancela la confirmación");
     }
+
     @Test
     public void testMostrarMapaImprimeEstructura() {
         asientoService.inicializarSala("VIP");
